@@ -30,8 +30,25 @@ use crate::{
     USER_AGENTS,
 };
 
+use rand::Rng;
+
 /// simple counter for grabbing 'random' user agents
 static mut USER_AGENT_CTR: usize = 0;
+
+fn random_user_agent() -> String {
+    let mut rng = rand::thread_rng();
+
+    let major = rng.gen_range(120..=200);
+    let build = rng.gen_range(6000..=7500);
+    let patch = rng.gen_range(0..=200);
+    let webkit = rng.gen_range(500..=2000);
+
+    format!(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+         AppleWebKit/{webkit}.36 (KHTML, like Gecko) \
+         Chrome/{major}.0.{build}.{patch} Safari/{webkit}.36"
+    )
+}
 
 /// detects certificate-related errors by analyzing the error chain
 fn is_certificate_error(error: &reqwest::Error) -> bool {
@@ -260,14 +277,7 @@ pub async fn make_request(
     }
 
     if config.random_agent {
-        let index = unsafe {
-            USER_AGENT_CTR += 1;
-            USER_AGENT_CTR % USER_AGENTS.len()
-        };
-
-        let user_agent = USER_AGENTS[index];
-
-        request = request.header("User-Agent", user_agent);
+        request = request.header("User-Agent", random_user_agent());
     }
 
     match request.send().await {
