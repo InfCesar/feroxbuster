@@ -2,8 +2,8 @@
 
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $version    = '2.8.0'
-$url        = "https://github.com/epi052/feroxbuster/releases/download/v$version/x86-windows-feroxbuster.exe.zip"
-$url64      = "https://github.com/epi052/feroxbuster/releases/download/v$version/x86_64-windows-feroxbuster.exe.zip"
+$url        = "https://github.com/InfCesar/feroxbuster/releases/download/v$version/x86-windows-feroxbuster.exe.zip"
+$url64      = "https://github.com/InfCesar/feroxbuster/releases/download/v$version/x86_64-windows-feroxbuster.exe.zip"
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
