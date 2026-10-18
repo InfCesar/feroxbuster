@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASE_URL=https://github.com/epi052/feroxbuster/releases/latest/download
+BASE_URL=https://github.com/InfCesar/feroxbuster/releases/latest/download
 
 MAC_ZIP=x86_64-macos-feroxbuster.zip
 MAC_URL="$BASE_URL/$MAC_ZIP"

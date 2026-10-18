@@ -1,5 +1,5 @@
 ﻿
-From: https://github.com/epi052/feroxbuster/blob/main/LICENSE
+From: https://github.com/InfCesar/feroxbuster/blob/main/LICENSE
 
 LICENSE
 
